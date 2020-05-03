@@ -241,9 +241,10 @@ Image 2 - Average Defense by Tier
 
 </div>
 
-Now we see a pattern here. Therefore, in order to have an understanding
-of the importance of the variables, I decided to run a tree to check the
-`feature_importance_`:
+Now we see a pattern here.
+
+Then, in order to have an understanding of the importance of the
+variables, I decided to run a tree to check the `feature_importance_`:
 
 <div class="figure" style="text-align: center">
 
@@ -1368,7 +1369,8 @@ NA
 </table>
 
 This one is my partner’s favorite starter. I want to check how good is
-this Pokemón going to be. And the result is **drums roll** Upper Tiers.
+this Pokemón going to be. And the result is -**drums roll**- Upper
+Tiers.
 
 OK, seems like I am going to have to put some extra effort.
 

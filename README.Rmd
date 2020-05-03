@@ -108,7 +108,9 @@ path <- "results/figures/Defense.png"
 knitr::include_graphics(path)
 ```
 
-Now we see a pattern here. Therefore, in order to have an understanding of the importance of the variables, I decided to run a tree to check the `feature_importance_`:
+Now we see a pattern here.
+
+Then, in order to have an understanding of the importance of the variables, I decided to run a tree to check the `feature_importance_`:
 
 ```{r importance, echo=FALSE, out.width = '70%', out.height = '150%', fig.cap = 'Image 3 - Feature Importance using a Decision Tree', fig.align="center"}
 path <- "results/figures/importance_plot_cropped.png"
@@ -235,7 +237,7 @@ pokemon_stats <- pokemon %>%
 kableExtra::kable_styling(knitr::kable(pokemon_stats), position = "center", full_width = F)
 ```
 
-This one is my partner's favorite starter. I want to check how good is this Pokemón going to be. And the result is **drums roll** `r pokemon$Prediction`. 
+This one is my partner's favorite starter. I want to check how good is this Pokemón going to be. And the result is -**drums roll**- `r pokemon$Prediction`. 
 
 OK, seems like I am going to have to put some extra effort.
 
