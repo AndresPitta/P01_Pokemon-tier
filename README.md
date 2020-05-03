@@ -9,6 +9,8 @@ Andrés Pitta </br>
       - [Analysis](#analysis)
           - [EDA](#eda)
           - [Modeling](#modeling)
+          - [Final Test](#final-test)
+  - [Reflection and Further work](#reflection-and-further-work)
   - [References](#references)
 
 # Summary
@@ -278,7 +280,7 @@ enough. I am now starting to realize why I loose so much.
 ### Modeling
 
 As I mentioned before, 10 models were tested before over a training set
-of 374 Pókemon. Later, the final model was tested on a data set of 125
+of 424 Pókemon. Later, the final model was tested on a data set of 75
 Pokemón. For the first portion, here are the results:
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -333,13 +335,13 @@ decision tree
 
 <td style="text-align:right;">
 
-0.617
+0.720
 
 </td>
 
 <td style="text-align:right;">
 
-0.011
+0.0300
 
 </td>
 
@@ -355,19 +357,19 @@ kNN
 
 <td style="text-align:right;">
 
-0.779
+0.742
 
 </td>
 
 <td style="text-align:right;">
 
-0.667
+0.723
 
 </td>
 
 <td style="text-align:right;">
 
-0.024
+0.0660
 
 </td>
 
@@ -383,19 +385,19 @@ OVR - logistic regression
 
 <td style="text-align:right;">
 
-0.823
+0.773
 
 </td>
 
 <td style="text-align:right;">
 
-0.690
+0.693
 
 </td>
 
 <td style="text-align:right;">
 
-0.040
+0.0590
 
 </td>
 
@@ -411,19 +413,19 @@ OVR - RBF SVM
 
 <td style="text-align:right;">
 
-0.920
+0.883
 
 </td>
 
 <td style="text-align:right;">
 
-0.678
+0.672
 
 </td>
 
 <td style="text-align:right;">
 
-0.021
+0.0382
 
 </td>
 
@@ -439,19 +441,19 @@ OVO - logistic regression
 
 <td style="text-align:right;">
 
-0.788
+0.797
 
 </td>
 
 <td style="text-align:right;">
 
-0.697
+0.696
 
 </td>
 
 <td style="text-align:right;">
 
-0.025
+0.0397
 
 </td>
 
@@ -467,19 +469,19 @@ OVO - RBF SVM
 
 <td style="text-align:right;">
 
-0.912
+0.852
 
 </td>
 
 <td style="text-align:right;">
 
-0.701
+0.659
 
 </td>
 
 <td style="text-align:right;">
 
-0.022
+0.0270
 
 </td>
 
@@ -495,19 +497,19 @@ random forest
 
 <td style="text-align:right;">
 
-0.947
+0.945
 
 </td>
 
 <td style="text-align:right;">
 
-0.713
+0.709
 
 </td>
 
 <td style="text-align:right;">
 
-0.045
+0.0460
 
 </td>
 
@@ -523,19 +525,19 @@ xgboost
 
 <td style="text-align:right;">
 
-0.965
+0.953
 
 </td>
 
 <td style="text-align:right;">
 
-0.686
+0.720
 
 </td>
 
 <td style="text-align:right;">
 
-0.026
+0.0270
 
 </td>
 
@@ -551,19 +553,19 @@ lgbm
 
 <td style="text-align:right;">
 
-0.823
+0.805
 
 </td>
 
 <td style="text-align:right;">
 
-0.674
+0.682
 
 </td>
 
 <td style="text-align:right;">
 
-0.025
+0.0320
 
 </td>
 
@@ -579,19 +581,19 @@ Dummy
 
 <td style="text-align:right;">
 
-0.549
+0.477
 
 </td>
 
 <td style="text-align:right;">
 
-0.513
+0.520
 
 </td>
 
 <td style="text-align:right;">
 
-0.020
+0.0230
 
 </td>
 
@@ -668,13 +670,13 @@ OVO - logistic regression
 
 <td style="text-align:right;">
 
-0.788
+0.797
 
 </td>
 
 <td style="text-align:right;">
 
-0.704
+0.68
 
 </td>
 
@@ -684,7 +686,7 @@ OVO - logistic regression
 
 </table>
 
-So I guess a test accuracy of 0.704 is decent. I am not feeling super
+So I guess a test accuracy of 0.68 is decent. I am not feeling super
 confident right here. Let’s see the confusion matrix (Real on the rows,
 predicted on the columns):
 
@@ -732,13 +734,13 @@ AG - Ubers
 
 <td style="text-align:right;">
 
-7
+4
 
 </td>
 
 <td style="text-align:right;">
 
-2
+1
 
 </td>
 
@@ -760,19 +762,19 @@ Upper Tiers
 
 <td style="text-align:right;">
 
-6
+5
 
 </td>
 
 <td style="text-align:right;">
 
-14
+8
 
 </td>
 
 <td style="text-align:right;">
 
-11
+8
 
 </td>
 
@@ -788,19 +790,19 @@ Lower Tiers
 
 <td style="text-align:right;">
 
-1
+0
 
 </td>
 
 <td style="text-align:right;">
 
-15
+8
 
 </td>
 
 <td style="text-align:right;">
 
-67
+39
 
 </td>
 
@@ -811,7 +813,580 @@ Lower Tiers
 </table>
 
 And as you can see, at least the biggest numbers are in the correct
-prediction (though it can improve much more).
+prediction (though it can improve much more). One of the main reasons
+might be the small amount of data in the upper tiers. Even though I
+tried balancing the data, maybe using oversampling techniques would have
+helped. **Note:** In the code you can see I used balancing techniques.
+They seem to not be enough for this one.
+
+### Final Test
+
+So given that I wanted to create a model to create a good team, let’s
+evaluate the model with some of the team’s Pokemón. Just as an
+annoucement, the pictures were taken from [pokemon.com](www.pokemon.com)
+
+**First off is
+[Polteageist](https://www.pokemon.com/es/pokedex/polteageist) :**
+
+<img src="imgs/Polteageist_855.png" width="30%" height="30%" style="display: block; margin: auto;" />
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Name
+
+</th>
+
+<th style="text-align:left;">
+
+Type1
+
+</th>
+
+<th style="text-align:left;">
+
+Type2
+
+</th>
+
+<th style="text-align:right;">
+
+HP
+
+</th>
+
+<th style="text-align:right;">
+
+Attack
+
+</th>
+
+<th style="text-align:right;">
+
+Defense
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_attack
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_defense
+
+</th>
+
+<th style="text-align:right;">
+
+Speed
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Polteageis
+
+</td>
+
+<td style="text-align:left;">
+
+Ghost
+
+</td>
+
+<td style="text-align:left;">
+
+NA
+
+</td>
+
+<td style="text-align:right;">
+
+60
+
+</td>
+
+<td style="text-align:right;">
+
+65
+
+</td>
+
+<td style="text-align:right;">
+
+65
+
+</td>
+
+<td style="text-align:right;">
+
+134
+
+</td>
+
+<td style="text-align:right;">
+
+114
+
+</td>
+
+<td style="text-align:right;">
+
+70
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+Look at this cutie-pie. Ghost types are my favourite Pokemón, so I
+needed one for my team. According to my model, Polteageist is going to
+be Lower Tiers. **I’m heartbroken**.
+
+**Second is
+[Toxtricity](https://www.pokemon.com/el/pokedex/toxtricity):**
+
+<img src="imgs/Toxtricity_849.png" width="30%" height="30%" style="display: block; margin: auto;" />
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Name
+
+</th>
+
+<th style="text-align:left;">
+
+Type1
+
+</th>
+
+<th style="text-align:left;">
+
+Type2
+
+</th>
+
+<th style="text-align:right;">
+
+HP
+
+</th>
+
+<th style="text-align:right;">
+
+Attack
+
+</th>
+
+<th style="text-align:right;">
+
+Defense
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_attack
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_defense
+
+</th>
+
+<th style="text-align:right;">
+
+Speed
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Toxtricity
+
+</td>
+
+<td style="text-align:left;">
+
+Electric
+
+</td>
+
+<td style="text-align:left;">
+
+Poison
+
+</td>
+
+<td style="text-align:right;">
+
+75
+
+</td>
+
+<td style="text-align:right;">
+
+98
+
+</td>
+
+<td style="text-align:right;">
+
+70
+
+</td>
+
+<td style="text-align:right;">
+
+114
+
+</td>
+
+<td style="text-align:right;">
+
+70
+
+</td>
+
+<td style="text-align:right;">
+
+75
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+According to my model, This bad-ass is going to be Upper Tiers. This is
+a cool addition to my team and it has a Gigamax form.
+
+**Third is [Inteleon](https://www.pokemon.com/el/pokedex/inteleon):**
+
+<img src="imgs/Inteleon_818.png" width="30%" height="30%" style="display: block; margin: auto;" />
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Name
+
+</th>
+
+<th style="text-align:left;">
+
+Type1
+
+</th>
+
+<th style="text-align:left;">
+
+Type2
+
+</th>
+
+<th style="text-align:right;">
+
+HP
+
+</th>
+
+<th style="text-align:right;">
+
+Attack
+
+</th>
+
+<th style="text-align:right;">
+
+Defense
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_attack
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_defense
+
+</th>
+
+<th style="text-align:right;">
+
+Speed
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Inteleon
+
+</td>
+
+<td style="text-align:left;">
+
+Water
+
+</td>
+
+<td style="text-align:left;">
+
+NA
+
+</td>
+
+<td style="text-align:right;">
+
+70
+
+</td>
+
+<td style="text-align:right;">
+
+85
+
+</td>
+
+<td style="text-align:right;">
+
+65
+
+</td>
+
+<td style="text-align:right;">
+
+125
+
+</td>
+
+<td style="text-align:right;">
+
+65
+
+</td>
+
+<td style="text-align:right;">
+
+120
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+There is a very known rule in Pokemón that says that you should not sent
+your starter to the box. It is evil to do that. So, here is my beloved
+Inteleon which is going to be Upper Tiers. Pretty good.
+
+**Finally goes
+[Cinderace](https://www.pokemon.com/el/pokedex/cinderace):**
+
+<img src="imgs/Cinderace_815.png" width="30%" height="30%" style="display: block; margin: auto;" />
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Name
+
+</th>
+
+<th style="text-align:left;">
+
+Type1
+
+</th>
+
+<th style="text-align:left;">
+
+Type2
+
+</th>
+
+<th style="text-align:right;">
+
+HP
+
+</th>
+
+<th style="text-align:right;">
+
+Attack
+
+</th>
+
+<th style="text-align:right;">
+
+Defense
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_attack
+
+</th>
+
+<th style="text-align:right;">
+
+Special\_defense
+
+</th>
+
+<th style="text-align:right;">
+
+Speed
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Cinderace
+
+</td>
+
+<td style="text-align:left;">
+
+Fire
+
+</td>
+
+<td style="text-align:left;">
+
+NA
+
+</td>
+
+<td style="text-align:right;">
+
+80
+
+</td>
+
+<td style="text-align:right;">
+
+116
+
+</td>
+
+<td style="text-align:right;">
+
+75
+
+</td>
+
+<td style="text-align:right;">
+
+65
+
+</td>
+
+<td style="text-align:right;">
+
+75
+
+</td>
+
+<td style="text-align:right;">
+
+119
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+This one is my partner’s favorite starter. I want to check how good is
+this Pokemón going to be. And the result is **drums roll** Upper Tiers.
+
+OK, seems like I am going to have to put some extra effort.
+
+# Reflection and Further work
+
+As you can see, the model still has improvements to make. One of the
+improvements I see is oversampling the data for the upper tiers. These
+Pokemón are mildly uncommon, so I applied a few balancing techniques
+when modeling. However, given the small amount of Pokemón there is,
+maybe techniques such as SMOTE or others could have been helpful.
+
+Other things I want to experiment is including Pokemón move sets and
+abilities, this one is even harder because it requires NLP. Nonetheless,
+when building a team, these are things that people consider.
+
+Overall, this was a fun project that I will most likely will be coming
+back when a new generation is realeased. Let’s play and see if I can
+beat my partner.
 
 # References
 

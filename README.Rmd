@@ -38,6 +38,10 @@ test_prediction <- read_csv("results/pokemon_final_prediction.csv") %>%
                            Prediction = fct_relevel(Prediction, c("AG - Ubers", 
                                                                   "Upper Tiers",
                                                                   "Lower Tier")))
+
+newgen_prediction <- read_csv("results/pokemon_newgen_prediction.csv") %>% 
+                      select(-c(X1, `Unnamed: 0`, Number, Tier, Tier_2))
+                    
 ```
 
 # Summary
@@ -151,6 +155,99 @@ cm <- confusionMatrix(test_prediction$Tier_2, test_prediction$Prediction)$table
 kableExtra::kable_styling(knitr::kable(cm), position = "center", full_width = F)
 ```
 
-And as you can see, at least the biggest numbers are in the correct prediction (though it can improve much more).
+And as you can see, at least the biggest numbers are in the correct prediction (though it can improve much more). One of the main reasons might be the small amount of data in the upper tiers. Even though I tried balancing the data, maybe using oversampling techniques would have helped. **Note:** In the code you can see I used balancing techniques. They seem to not be enough for this one.
+
+### Final Test
+
+So given that I wanted to create a model to create a good team, let's evaluate the model with some of the team's Pokemón. Just as an annoucement, the pictures were taken from [pokemon.com](www.pokemon.com)
+
+**First off is [Polteageist](https://www.pokemon.com/es/pokedex/polteageist) :**
+
+```{r polteageist, echo=FALSE, out.width = '30%', out.height = '30%', fig.align="center"}
+path <- "imgs/Polteageist_855.png"
+knitr::include_graphics(path)
+```
+
+```{r polteageist stats, echo=FALSE, message=FALSE}
+pokemon <- newgen_prediction %>% 
+                filter(Name == 'Polteageis')
+
+pokemon_stats <- pokemon %>%
+                      select(Name, Type1, Type2, HP, Attack, Defense, Special_attack, Special_defense, Speed)
+
+kableExtra::kable_styling(knitr::kable(pokemon_stats), position = "center", full_width = F)
+```
+
+Look at this cutie-pie. Ghost types are my favourite Pokemón, so I needed one for my team. According to my model, Polteageist is going to be `r pokemon$Prediction`. **I'm heartbroken**.
+
+**Second is [Toxtricity](https://www.pokemon.com/el/pokedex/toxtricity):**
+
+```{r Toxtricity, echo=FALSE, out.width = '30%', out.height = '30%', fig.align="center"}
+path <- "imgs/Toxtricity_849.png"
+knitr::include_graphics(path)
+```
+
+```{r Toxtricity stats, echo=FALSE, message=FALSE}
+pokemon <- newgen_prediction %>% 
+                filter(Name == 'Toxtricity')
+
+pokemon_stats <- pokemon %>%
+                      select(Name, Type1, Type2, HP, Attack, Defense, Special_attack, Special_defense, Speed)
+
+kableExtra::kable_styling(knitr::kable(pokemon_stats), position = "center", full_width = F)
+```
+
+According to my model, This bad-ass is going to be `r pokemon$Prediction`. This is a cool addition to my team and it has a Gigamax form.
+
+**Third is [Inteleon](https://www.pokemon.com/el/pokedex/inteleon):**
+
+```{r Inteleon, echo=FALSE, out.width = '30%', out.height = '30%', fig.align="center"}
+path <- "imgs/Inteleon_818.png"
+knitr::include_graphics(path)
+```
+
+```{r Inteleon stats, echo=FALSE, message=FALSE}
+pokemon <- newgen_prediction %>% 
+                filter(Name == 'Inteleon')
+
+pokemon_stats <- pokemon %>%
+                      select(Name, Type1, Type2, HP, Attack, Defense, Special_attack, Special_defense, Speed)
+
+kableExtra::kable_styling(knitr::kable(pokemon_stats), position = "center", full_width = F)
+```
+
+There is a very known rule in Pokemón that says that you should not sent your starter to the box. It is evil to do that. So, here is my beloved Inteleon which is going to be `r pokemon$Prediction`. Pretty good.
+
+**Finally goes [Cinderace](https://www.pokemon.com/el/pokedex/cinderace):**
+
+```{r Cinderace, echo=FALSE, out.width = '30%', out.height = '30%', fig.align="center"}
+path <- "imgs/Cinderace_815.png"
+knitr::include_graphics(path)
+```
+
+```{r Cinderace stats, echo=FALSE, message=FALSE}
+pokemon <- newgen_prediction %>% 
+                filter(Name == 'Cinderace')
+
+pokemon_stats <- pokemon %>%
+                      select(Name, Type1, Type2, HP, Attack, Defense, Special_attack, Special_defense, Speed)
+
+kableExtra::kable_styling(knitr::kable(pokemon_stats), position = "center", full_width = F)
+```
+
+This one is my partner's favorite starter. I want to check how good is this Pokemón going to be. And the result is **drums roll** `r pokemon$Prediction`. 
+
+OK, seems like I am going to have to put some extra effort.
+
+# Reflection and Further work
+
+As you can see, the model still has improvements to make. One of the improvements I see is oversampling the data for the upper tiers. These Pokemón are mildly uncommon, so I applied a few balancing techniques when modeling. However, given the small amount of Pokemón there is, maybe techniques such as SMOTE or others could have been helpful. 
+
+Other things I want to experiment is including Pokemón move sets and abilities, this one is even harder because it requires NLP. Nonetheless, when building a team, these are things that people consider.
+
+Overall, this was a fun project that I will most likely will be coming back when a new generation is realeased. Let's play and see if I can beat my partner.
+
+
+
 
 # References

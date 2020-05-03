@@ -14,7 +14,7 @@ Options:
 --DATA_FILE_PATH=<DATA_FILE_PATH>       Path (including filename) to retrieve the csv file. [default: data/pokemon_smogon_competitive.csv]
 --TRAIN_FILE_PATH=<TRAIN_FILE_PATH>     Path (including filename) to print the train portion as a csv file. [default: data/pokemon_smogon_competitive_train.csv]
 --TEST_FILE_PATH=<TEST_FILE_PATH>       Path (including filename) to print the test portion as a csv file. [default: data/pokemon_smogon_competitive_test.csv]
---TRAIN_SIZE=<TRAIN_SIZE>               Decimal value for the train/test split. [default: 0.75]
+--TRAIN_SIZE=<TRAIN_SIZE>               Decimal value for the train/test split. [default: 0.85]
 --NEW_GEN=<NEW_GEN>                     TRUE if the dataset contains info about the new generation (final test), FALSE otherwise [default: False]
 --NEW_GEN_PATH=<NEW_GEN_PATH>           Path (including filename) to print the wrangled new gen dataset as a csv file. This only applies if NEW_GEN is True [default: data/new_gen_wrangled.csv]
 '''

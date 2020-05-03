@@ -28,7 +28,7 @@ decision tree,"Pipeline(memory=None,
                                         min_weight_fraction_leaf=0.0,
                                         presort='deprecated', random_state=None,
                                         splitter='best'))],
-         verbose=False)",1.0,0.617,0.011
+         verbose=False)",1.0,0.72,0.03
 kNN,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -62,7 +62,7 @@ kNN,"Pipeline(memory=None,
                                       metric='minkowski', metric_params=None,
                                       n_jobs=None, n_neighbors=15, p=2,
                                       weights='uniform'))],
-         verbose=False)",0.779,0.667,0.024
+         verbose=False)",0.742,0.723,0.066
 OVR - logistic regression,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -100,7 +100,7 @@ OVR - logistic regression,"Pipeline(memory=None,
                                                                   verbose=0,
                                                                   warm_start=False),
                                      n_jobs=None))],
-         verbose=False)",0.823,0.69,0.04
+         verbose=False)",0.773,0.693,0.059
 OVR - RBF SVM,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -135,7 +135,7 @@ OVR - RBF SVM,"Pipeline(memory=None,
                                                    shrinking=True, tol=0.001,
                                                    verbose=False),
                                      n_jobs=None))],
-         verbose=False)",0.92,0.678,0.021
+         verbose=False)",0.883,0.672,0.0382
 OVO - logistic regression,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -173,7 +173,7 @@ OVO - logistic regression,"Pipeline(memory=None,
                                                                  verbose=0,
                                                                  warm_start=False),
                                     n_jobs=None))],
-         verbose=False)",0.788,0.697,0.025
+         verbose=False)",0.797,0.696,0.0397
 OVO - RBF SVM,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -208,7 +208,7 @@ OVO - RBF SVM,"Pipeline(memory=None,
                                                   shrinking=True, tol=0.001,
                                                   verbose=False),
                                     n_jobs=None))],
-         verbose=False)",0.912,0.701,0.022
+         verbose=False)",0.852,0.659,0.027
 random forest,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -237,7 +237,7 @@ random forest,"Pipeline(memory=None,
                                         n_estimators=15, n_jobs=None,
                                         oob_score=False, random_state=None,
                                         verbose=0, warm_start=False))],
-         verbose=False)",0.947,0.713,0.045
+         verbose=False)",0.945,0.709,0.046
 xgboost,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -264,7 +264,7 @@ xgboost,"Pipeline(memory=None,
                                objective='multi:softprob', random_state=0,
                                reg_alpha=0, reg_lambda=1, scale_pos_weight=1,
                                seed=None, silent=True, subsample=1))],
-         verbose=False)",0.965,0.686,0.026
+         verbose=False)",0.953,0.72,0.027
 lgbm,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -291,7 +291,7 @@ lgbm,"Pipeline(memory=None,
                                 random_state=None, reg_alpha=0.0,
                                 reg_lambda=0.0, silent=True, subsample=1.0,
                                 subsample_for_bin=200000, subsample_freq=0))],
-         verbose=False)",0.823,0.674,0.025
+         verbose=False)",0.805,0.682,0.032
 Dummy,"Pipeline(memory=None,
          steps=[('preprocessor',
                  ColumnTransformer(n_jobs=None, remainder='drop',
@@ -328,4 +328,4 @@ Dummy,"Pipeline(memory=None,
                 ('classifier',
                  DummyClassifier(constant=None, random_state=None,
                                  strategy='warn'))],
-         verbose=False)",0.549,0.513,0.02
+         verbose=False)",0.477,0.52,0.023
