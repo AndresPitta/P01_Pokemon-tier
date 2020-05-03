@@ -177,7 +177,7 @@ And as you can see, at least the biggest numbers are in the correct prediction (
 
 ### Final Test
 
-So given that I wanted to create a model to create a good team, let's evaluate the model with some of the team's Pokemón. Just as an annoucement, the pictures were taken from [pokemon.com](www.pokemon.com)
+So given that I wanted to create a model to build a good team, let's evaluate the model with some of the team's Pokemón. Just as an annoucement, the pictures were taken from [pokemon.com](www.pokemon.com)
 
 **First off is [Polteageist](https://www.pokemon.com/es/pokedex/polteageist) :**
 

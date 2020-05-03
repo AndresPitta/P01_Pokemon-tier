@@ -838,7 +838,7 @@ They seem to not be enough for this one.
 
 ### Final Test
 
-So given that I wanted to create a model to create a good team, let’s
+So given that I wanted to create a model to build a good team, let’s
 evaluate the model with some of the team’s Pokemón. Just as an
 annoucement, the pictures were taken from [pokemon.com](www.pokemon.com)
 
