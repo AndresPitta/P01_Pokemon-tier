@@ -3,11 +3,12 @@
 
 '''This script evaluates a set of models a prints the results so that the user chooses the model.
 
-Usage: modeling.py [--TRAIN_FILE_PATH=<TRAIN_FILE_PATH>] [--TEST_FILE_PATH=<TEST_FILE_PATH>] [--RESULTS_FILE_PATH=<RESULTS_FILE_PATH>] [--IMPORTANCES_FILE_PATH=<IMPORTANCES_FILE_PATH>] [--MODEL_DUMP_PATH=<MODEL_DUMP_PATH>] [--IMPORTANCE_PLOT_PATH=<IMPORTANCE_PLOT_PATH>] [--CATEGORICAL_FEATURES=<CATEGORICAL_FEATURES>] [--NUMERICAL_FEATURES=<NUMERICAL_FEATURES>] [--RESULTS_FINAL_PATH=<RESULTS_FINAL_PATH>]
+Usage: modeling.py [--TRAIN_FILE_PATH=<TRAIN_FILE_PATH>] [--TEST_FILE_PATH=<TEST_FILE_PATH>] [--NEW_GEN_PATH=<NEW_GEN_PATH>] [--RESULTS_FILE_PATH=<RESULTS_FILE_PATH>] [--IMPORTANCES_FILE_PATH=<IMPORTANCES_FILE_PATH>] [--MODEL_DUMP_PATH=<MODEL_DUMP_PATH>] [--IMPORTANCE_PLOT_PATH=<IMPORTANCE_PLOT_PATH>] [--CATEGORICAL_FEATURES=<CATEGORICAL_FEATURES>] [--NUMERICAL_FEATURES=<NUMERICAL_FEATURES>] [--RESULTS_FINAL_PATH=<RESULTS_FINAL_PATH>] [--FINAL_PREDICTION_PATH=<FINAL_PREDICTION_PATH>] [--NEWGEN_PREDICTION_PATH=<NEWGEN_PREDICTION>]
 
 Options:
 --TRAIN_FILE_PATH=<TRAIN_FILE_PATH>  Path (including filename) to gather the csv file. [default: data/pokemon_smogon_competitive_train.csv]
 --TEST_FILE_PATH=<TEST_FILE_PATH>  Path (including filename) to gather the test csv file. [default: data/pokemon_smogon_competitive_test.csv]
+--NEW_GEN_PATH=<NEW_GEN_PATH>  Path to the new generation csv. [default: data/new_gen_wrangled.csv]
 --RESULTS_FILE_PATH=<RESULTS_FILE_PATH>  Path to output Results table. [default: results/pokemon_models.csv]
 --IMPORTANCES_FILE_PATH=<IMPORTANCES_FILE_PATH>  Path to output Feature Importance table. [default: results/pokemon_feature_importances.csv]
 --MODEL_DUMP_PATH=<MODEL_DUMP_PATH>  Path to output Models table. [default: results/models/final_model.pic]
@@ -15,6 +16,8 @@ Options:
 --CATEGORICAL_FEATURES=<CATEGORICAL_FEATURES>  String of categorical features separated by commas [default: Type1,Type2,Mega,Has_ST]
 --NUMERICAL_FEATURES=<NUMERICAL_FEATURES>  String of numerical features separated by commas [default: HP,Attack,Defense,Special_attack,Special_defense,Speed]
 --RESULTS_FINAL_PATH=<RESULTS_FINAL_PATH>  Path to output Final model's Results table. [default: results/pokemon_final_model.csv]
+--FINAL_PREDICTION_PATH=<FINAL_PREDICTION_PATH>  Path to output Final model's predictions. [default: results/pokemon_final_prediction.csv]
+--NEWGEN_PREDICTION_PATH=<NEWGEN_PREDICTION>  Path to output Final model's predictions on the new gen. [default: results/pokemon_newgen_prediction.csv]
 '''
 
 from docopt import docopt
@@ -63,14 +66,16 @@ import time
 browser = webdriver.Chrome('C:\webdrivers\chromedriver.exe')
 opt = docopt(__doc__)
 
-def main(data_file_path, test_file_path, results_file_path, importances_file_path, model_dump_path, importance_plot_path, 
-         cat_features, num_features, final_path):
+def main(data_file_path, test_file_path, new_gen_path, results_file_path, importances_file_path, model_dump_path, importance_plot_path, 
+         cat_features, num_features, final_path, final_prediction_path, new_gen_prediction_path):
     assert os.path.isfile(data_file_path), "TRAIN_FILE_PATH does not exist"
     assert os.path.isfile(test_file_path), "TEST_FILE_PATH does not exist"
+    assert os.path.isfile(new_gen_path), "NEW_GEN_PATH does not exist"
     
     print("Model evaluation - Starting \n")
     data = pd.read_csv(data_file_path)
     test_data = pd.read_csv(test_file_path)
+    new_gen = pd.read_csv(new_gen_path)
     
     categorical_features = cat_features.split(",")
     numeric_features = num_features.split(",")
@@ -91,14 +96,14 @@ def main(data_file_path, test_file_path, results_file_path, importances_file_pat
     
     models = {
           'decision tree': DecisionTreeClassifier(),
-          'kNN': KNeighborsClassifier(),
-          'OVR - logistic regression': OneVsRestClassifier(LogisticRegression(solver ='lbfgs')),
-          'OVR - RBF SVM' :  OneVsRestClassifier(SVC(gamma = 'scale')), 
-          'OVO - logistic regression': OneVsOneClassifier(LogisticRegression(solver ='lbfgs')),
-          'OVO - RBF SVM' :  OneVsOneClassifier(SVC(gamma = 'scale')), 
-          'random forest' : RandomForestClassifier(), 
-          'xgboost' : XGBClassifier(),
-          'lgbm': LGBMClassifier(),
+          'kNN': KNeighborsClassifier(n_neighbors=15),
+          'OVR - logistic regression': OneVsRestClassifier(LogisticRegression(solver ='lbfgs', class_weight='balanced')),
+          'OVR - RBF SVM' :  OneVsRestClassifier(SVC(gamma = 'scale', class_weight='balanced')), 
+          'OVO - logistic regression': OneVsOneClassifier(LogisticRegression(solver ='lbfgs', class_weight='balanced')),
+          'OVO - RBF SVM' :  OneVsOneClassifier(SVC(gamma = 'scale', class_weight='balanced')), 
+          'random forest' : RandomForestClassifier(n_estimators=15, max_depth=5), 
+          'xgboost' : XGBClassifier(n_estimators=30),
+          'lgbm': LGBMClassifier(n_estimators=15, max_depth=5),
           'Dummy': DummyClassifier()
          }
     
@@ -118,6 +123,7 @@ def main(data_file_path, test_file_path, results_file_path, importances_file_pat
     
     print("Printing results... \n", end='')
     results_df.to_csv(results_file_path)
+    print(results_df[['Train Accuracy', 'Validation Accuracy']])
     
     print("Printing importances... \n", end='')
     importances.to_csv(importances_file_path)
@@ -126,16 +132,27 @@ def main(data_file_path, test_file_path, results_file_path, importances_file_pat
     plot_feature_importance(importances, importance_plot_path)
     print(f"Importance plot saved in {importance_plot_path}")
     
-    chosen_model = 'OVR - logistic regression'
+    chosen_model = 'OVO - logistic regression'
     print(f"The chosen model is {chosen_model}\n", end='')
     final_model = results[chosen_model][0]
-    test_results = test_model(X_train, y_train, X_test, y_test, preprocessor, final_model, chosen_model)
+    test_results, predictions = test_model(X_train, y_train, X_test, y_test, final_model, chosen_model)
+    test_data['Prediction'] = predictions
     
     print("Dumping models... \n", end='')
     dump_model(model_dump_path, final_model)
     
     print("Printing results - final model... \n", end='')
     test_results.to_csv(final_path)
+    print(test_results)
+    
+    print("Printing test predictions - final model... \n", end='')
+    test_data.to_csv(final_prediction_path)
+    
+    print("Testing Model on New Generation - final model... \n", end='')
+    new_gen['Prediction'] = predict_new_gen(new_gen, all_features, final_model)
+    
+    print("Printing New Generation's Predictions - final model... \n", end='')
+    new_gen.to_csv(new_gen_prediction_path)
     
     print("Model evaluation - Finished")
 
@@ -298,7 +315,7 @@ def plot_feature_importance(data, importance_plot_path):
         
     chart.save(importance_plot_path)
     
-def test_model(X, y, X_test, y_test, preprocessor, final_model, model_name):
+def test_model(X, y, X_test, y_test,final_model, model_name):
     """
     Evaluates the final model in a test dataset
     
@@ -307,25 +324,44 @@ def test_model(X, y, X_test, y_test, preprocessor, final_model, model_name):
     y -- (dataframe) train y
     X_test -- (dataframe) test X
     y_test -- (dataframe) test y
-    preprocessor -- (sklearn.compose.ColumnTransformer) one hot encoding preprocessor
     final_model -- (model) final model
     model_name -- (string) Name of the model
     
     Returns: 
     results -- (dataframe) Dataframe with testing results
+    predictions -- (array) Array with model predictions
     """
     results = {
         'Model': model_name,
-        'Train accuracy': final_model.score(X, y),
-        'Test accuracy': final_model.score(X_test, y_test)
+        'Train accuracy': round(final_model.score(X, y),3),
+        'Test accuracy': round(final_model.score(X_test, y_test),3)
     }
     
+    predictions = final_model.predict(X_test)
+
     results_df = pd.DataFrame(results, index = [0])
     
-    return results_df
+    return results_df, predictions
+
+def predict_new_gen(new_gen_data, features, final_model):
+    """
+    Predicts the tier for a new generation
+    
+    Parameters:
+    new_gen_data -- (dataframe) New generation Pokemón data set
+    features -- (list) List of features used in the model
+    final_model -- (model) final model
+    
+    Returns: 
+    predictions -- (list) Model predictions on the new generation
+    """
+    X = new_gen_data[features]
+    predictions = final_model.predict(X)
+    
+    return predictions
     
 
 if __name__ == "__main__":
-     main(opt["--TRAIN_FILE_PATH"], opt["--TEST_FILE_PATH"], opt["--RESULTS_FILE_PATH"], 
-          opt["--IMPORTANCES_FILE_PATH"], opt["--MODEL_DUMP_PATH"], opt["--IMPORTANCE_PLOT_PATH"],
-          opt["--CATEGORICAL_FEATURES"], opt["--NUMERICAL_FEATURES"], opt["--RESULTS_FINAL_PATH"])
+     main(opt["--TRAIN_FILE_PATH"], opt["--TEST_FILE_PATH"], opt["--NEW_GEN_PATH"], opt["--RESULTS_FILE_PATH"], 
+          opt["--IMPORTANCES_FILE_PATH"], opt["--MODEL_DUMP_PATH"], opt["--IMPORTANCE_PLOT_PATH"], opt["--CATEGORICAL_FEATURES"],
+          opt["--NUMERICAL_FEATURES"], opt["--RESULTS_FINAL_PATH"], opt["--FINAL_PREDICTION_PATH"], opt["--NEWGEN_PREDICTION_PATH"])

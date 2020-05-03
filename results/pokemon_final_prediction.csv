@@ -1,0 +1,126 @@
+,Unnamed: 0,Number,Name,Type1,Type2,Total,HP,Attack,Defense,Special_attack,Special_defense,Speed,Generation,Legendary,Mega,Tier,Tier_2,Has_ST,Prediction
+0,498,384,Mega Rayquaza,Dragon,Flying,780,105,180,100,180,100,115,3,True,True,AG,AG - Ubers,Yes,AG - Ubers
+1,423,625,Bisharp,Dark,Steel,490,65,125,100,60,70,70,5,False,False,OU,Upper Tiers,Yes,Lower Tiers
+2,288,424,Ambipom,Normal,,482,75,100,66,60,66,115,4,False,False,RU,Lower Tiers,No,Upper Tiers
+3,234,358,Chimecho,Psychic,,425,65,50,70,95,80,65,3,False,False,PU,Lower Tiers,No,Lower Tiers
+4,495,383,Primal Groudon,Ground,Fire,770,100,180,160,150,90,90,3,True,False,Uber,AG - Ubers,Yes,AG - Ubers
+5,110,184,Azumarill,Water,Fairy,420,100,50,80,60,80,50,2,False,False,OU,Upper Tiers,Yes,Lower Tiers
+6,39,71,Victreebel,Grass,Poison,490,80,105,65,100,70,70,1,False,False,BL4,Lower Tiers,Yes,Lower Tiers
+7,374,538,Throh,Fighting,,465,120,100,85,30,85,45,5,False,False,BL4,Lower Tiers,No,Lower Tiers
+8,418,618,Stunfisk,Ground,Electric,471,109,66,84,81,99,32,5,False,False,PU,Lower Tiers,Yes,Lower Tiers
+9,434,249,Lugia,Psychic,Flying,680,106,90,130,90,154,110,2,True,False,Uber,AG - Ubers,Yes,AG - Ubers
+10,180,284,Masquerain,Bug,Flying,414,70,60,62,80,82,60,3,False,False,PU,Lower Tiers,Yes,Lower Tiers
+11,221,338,Solrock,Rock,Psychic,440,70,95,85,55,65,70,3,False,False,PU,Lower Tiers,Yes,Lower Tiers
+12,327,476,Probopass,Rock,Steel,525,60,55,145,75,150,40,4,False,False,PU,Lower Tiers,Yes,Lower Tiers
+13,318,468,Togekiss,Fairy,Flying,545,85,50,95,120,115,80,4,False,False,BL,Upper Tiers,Yes,Upper Tiers
+14,220,337,Lunatone,Rock,Psychic,440,70,55,65,95,85,70,3,False,False,PU,Lower Tiers,Yes,Lower Tiers
+15,398,584,Vanilluxe,Ice,,535,71,95,85,110,95,79,5,False,False,PU,Lower Tiers,No,Upper Tiers
+16,189,302,Mega Sableye,Dark,Ghost,480,50,85,125,85,115,20,3,False,True,Uber,AG - Ubers,Yes,Lower Tiers
+17,428,631,Heatmor,Fire,,484,85,97,66,105,66,65,5,False,False,PU,Lower Tiers,No,Lower Tiers
+18,274,402,Kricketune,Bug,,384,77,85,51,55,51,65,4,False,False,PU,Lower Tiers,No,Lower Tiers
+19,70,123,Scyther,Bug,Flying,500,70,110,80,55,80,105,1,False,False,NU,Lower Tiers,Yes,Upper Tiers
+20,384,556,Maractus,Grass,,461,75,86,67,106,67,60,5,False,False,PU,Lower Tiers,No,Lower Tiers
+21,373,537,Seismitoad,Water,Ground,509,105,95,75,85,75,74,5,False,False,RU,Lower Tiers,Yes,Upper Tiers
+22,229,352,Kecleon,Normal,,440,60,90,70,60,120,40,3,False,False,NU,Lower Tiers,No,Lower Tiers
+23,175,275,Shiftry,Grass,Dark,480,90,100,60,90,60,80,3,False,False,NU,Lower Tiers,Yes,Lower Tiers
+24,87,489,Phione,Water,,480,80,80,80,80,80,80,4,True,False,PU,Lower Tiers,No,Lower Tiers
+25,407,598,Ferrothorn,Grass,Steel,489,74,94,131,54,116,20,5,False,False,OU,Upper Tiers,Yes,Lower Tiers
+26,31,57,Primeape,Fighting,,455,65,105,60,60,70,95,1,False,False,NU,Lower Tiers,No,Lower Tiers
+27,443,716,Xerneas,Fairy,,680,126,131,95,131,98,99,6,True,False,Uber,AG - Ubers,No,AG - Ubers
+28,235,359,Mega Absol,Dark,,565,65,150,60,115,60,115,3,False,True,UU,Upper Tiers,No,AG - Ubers
+29,290,428,Mega Lopunny,Normal,Fighting,580,65,136,94,54,96,135,4,False,True,OU,Upper Tiers,Yes,Upper Tiers
+30,283,416,Vespiquen,Bug,Flying,474,70,80,102,80,102,40,4,False,False,PU,Lower Tiers,Yes,Lower Tiers
+31,190,302,Sableye,Dark,Ghost,380,50,75,75,65,65,50,3,False,False,BL2,Lower Tiers,Yes,Lower Tiers
+32,159,248,Mega Tyranitar,Rock,Dark,700,100,164,150,95,120,71,2,False,True,OU,Upper Tiers,Yes,AG - Ubers
+33,155,245,Suicune,Water,,580,100,75,115,90,115,85,2,True,False,UU,Upper Tiers,No,Upper Tiers
+34,34,64,Kadabra,Psychic,,400,40,35,30,120,70,105,1,False,False,PU,Lower Tiers,No,Lower Tiers
+35,191,303,Mega Mawile,Steel,Fairy,480,50,105,125,55,95,50,3,False,True,Uber,AG - Ubers,Yes,Lower Tiers
+36,492,719,Mega Diancie,Rock,Fairy,700,50,160,110,160,110,110,6,True,True,OU,Upper Tiers,Yes,AG - Ubers
+37,32,59,Arcanine,Fire,,555,90,110,80,100,80,95,1,False,False,UU,Upper Tiers,No,Upper Tiers
+38,419,620,Mienshao,Fighting,,510,65,125,60,95,60,105,5,False,False,UU,Upper Tiers,No,Upper Tiers
+39,317,467,Magmortar,Fire,,540,75,95,67,125,95,83,4,False,False,NU,Lower Tiers,No,Upper Tiers
+40,181,286,Breloom,Grass,Fighting,460,60,130,80,60,60,70,3,False,False,OU,Upper Tiers,Yes,Lower Tiers
+41,111,185,Sudowoodo,Rock,,410,70,100,115,30,65,30,2,False,False,PU,Lower Tiers,No,Lower Tiers
+42,251,639,Terrakion,Rock,Fighting,580,91,129,90,72,90,108,5,True,False,BL,Upper Tiers,Yes,Upper Tiers
+43,359,510,Liepard,Dark,,446,64,88,50,88,50,106,5,False,False,NU,Lower Tiers,No,Lower Tiers
+44,286,421,Cherrim,Grass,,450,70,60,70,87,78,85,4,False,False,PU,Lower Tiers,No,Lower Tiers
+45,402,591,Amoonguss,Grass,Poison,464,114,85,70,85,80,30,5,False,False,OU,Upper Tiers,Yes,Lower Tiers
+46,135,214,Heracross,Bug,Fighting,500,80,125,75,40,95,85,2,False,False,UU,Upper Tiers,Yes,Lower Tiers
+47,18,31,Nidoqueen,Poison,Ground,505,90,92,87,75,85,76,1,False,False,UU,Upper Tiers,Yes,Lower Tiers
+48,231,354,Banette,Ghost,,455,64,115,65,83,63,65,3,False,False,PU,Lower Tiers,No,Lower Tiers
+49,416,615,Cryogonal,Ice,,485,70,50,30,95,135,105,5,False,False,PU,Lower Tiers,No,Lower Tiers
+50,314,464,Rhyperior,Ground,Rock,535,115,140,130,55,55,40,4,False,False,RU,Lower Tiers,Yes,Upper Tiers
+51,370,531,Audino,Normal,,445,103,60,86,60,86,50,5,False,False,PU,Lower Tiers,No,Lower Tiers
+52,243,370,Luvdisc,Water,,330,43,30,55,40,65,97,3,False,False,PU,Lower Tiers,No,Lower Tiers
+53,464,678,Meowstic-M,Psychic,,466,74,48,76,83,81,104,6,False,False,PU,Lower Tiers,No,Lower Tiers
+54,207,321,Wailord,Water,,500,170,90,45,90,45,60,3,False,False,PU,Lower Tiers,No,Lower Tiers
+55,377,545,Scolipede,Bug,Poison,485,60,100,89,55,69,112,5,False,False,BL,Upper Tiers,Yes,Lower Tiers
+56,409,601,Klinklang,Steel,,520,60,100,115,70,85,90,5,False,False,NU,Lower Tiers,No,Upper Tiers
+57,129,210,Granbull,Fairy,,450,90,120,75,60,60,45,2,False,False,RU,Lower Tiers,No,Lower Tiers
+58,188,301,Delcatty,Normal,,380,70,65,65,55,55,70,3,False,False,PU,Lower Tiers,No,Lower Tiers
+59,106,178,Xatu,Psychic,Flying,470,65,75,70,95,70,95,2,False,False,NU,Lower Tiers,Yes,Lower Tiers
+60,107,181,Mega Ampharos,Electric,Dragon,610,90,95,105,165,110,45,2,False,True,UU,Upper Tiers,Yes,Upper Tiers
+61,74,128,Tauros,Normal,,490,75,100,95,40,70,110,1,False,False,NU,Lower Tiers,No,Upper Tiers
+62,297,441,Chatot,Normal,Flying,411,76,65,45,92,42,91,4,False,False,PU,Lower Tiers,Yes,Lower Tiers
+63,227,350,Milotic,Water,,540,95,60,79,100,125,81,3,False,False,UU,Upper Tiers,No,Upper Tiers
+64,490,715,Noivern,Flying,Dragon,535,85,70,80,97,80,123,6,False,False,BL2,Lower Tiers,Yes,Upper Tiers
+65,61,110,Weezing,Poison,,490,65,90,120,85,70,60,1,False,False,NU,Lower Tiers,No,Lower Tiers
+66,174,272,Ludicolo,Water,Grass,480,80,70,70,90,100,70,3,False,False,NU,Lower Tiers,Yes,Lower Tiers
+67,350,382,Kyogre,Water,,670,100,100,90,150,140,90,3,True,False,Uber,AG - Ubers,No,AG - Ubers
+68,311,461,Weavile,Dark,Ice,510,70,120,65,45,85,125,4,False,False,OU,Upper Tiers,Yes,Upper Tiers
+69,239,365,Walrein,Ice,Water,530,110,80,90,95,90,65,3,False,False,PU,Lower Tiers,Yes,Upper Tiers
+70,72,127,Mega Pinsir,Bug,Flying,600,65,155,120,65,90,105,1,False,True,OU,Upper Tiers,Yes,Upper Tiers
+71,12,18,Pidgeot,Normal,Flying,479,83,80,75,70,70,101,1,False,False,PU,Lower Tiers,Yes,Lower Tiers
+72,429,632,Durant,Bug,Steel,484,58,109,112,48,48,109,5,False,False,BL2,Lower Tiers,Yes,Lower Tiers
+73,56,101,Electrode,Electric,,480,60,50,70,80,80,140,1,False,False,PU,Lower Tiers,No,Upper Tiers
+74,66,115,Kangaskhan,Normal,,490,105,95,80,40,80,90,1,False,False,NU,Lower Tiers,No,Upper Tiers
+75,364,521,Unfezant,Normal,Flying,488,80,115,80,65,55,93,5,False,False,PU,Lower Tiers,Yes,Lower Tiers
+76,122,202,Wobbuffet,Psychic,,405,190,33,58,33,58,33,2,False,False,PU,Lower Tiers,No,Lower Tiers
+77,420,621,Druddigon,Dragon,,485,77,120,90,60,90,48,5,False,False,RU,Lower Tiers,No,Lower Tiers
+78,488,711,Gourgeist-Super,Ghost,Grass,494,85,100,122,58,75,54,6,False,False,PU,Lower Tiers,Yes,Lower Tiers
+79,469,685,Slurpuff,Fairy,,480,82,80,86,85,75,72,6,False,False,BL2,Lower Tiers,No,Lower Tiers
+80,128,208,Steelix,Steel,Ground,510,75,85,200,55,65,30,2,False,False,NU,Lower Tiers,Yes,Lower Tiers
+81,326,475,Gallade,Psychic,Fighting,518,68,125,65,65,115,80,4,False,False,RU,Lower Tiers,Yes,Lower Tiers
+82,169,260,Mega Swampert,Water,Ground,635,100,150,110,95,110,70,3,False,True,UU,Upper Tiers,Yes,AG - Ubers
+83,257,151,Mew,Psychic,,600,100,100,100,100,100,100,1,True,False,OU,Upper Tiers,No,Upper Tiers
+84,2,6,Mega Charizard X,Fire,Dragon,634,78,130,111,130,85,100,1,False,True,OU,Upper Tiers,Yes,AG - Ubers
+85,247,376,Mega Metagross,Steel,Psychic,700,80,145,150,105,110,110,3,False,True,OU,Upper Tiers,Yes,AG - Ubers
+86,316,466,Electivire,Electric,,540,75,123,67,95,85,95,4,False,False,NU,Lower Tiers,No,Upper Tiers
+87,204,317,Swalot,Poison,,467,100,73,83,73,83,55,3,False,False,PU,Lower Tiers,No,Lower Tiers
+88,45,82,Magneton,Electric,Steel,465,50,60,95,120,70,70,1,False,False,RU,Lower Tiers,Yes,Lower Tiers
+89,102,168,Ariados,Bug,Poison,390,70,90,70,60,60,40,2,False,False,PU,Lower Tiers,Yes,Lower Tiers
+90,264,386,Deoxys-S,Psychic,,600,50,95,90,95,90,180,3,True,False,Uber,AG - Ubers,No,Upper Tiers
+91,393,573,Cinccino,Normal,,470,75,95,60,65,60,115,5,False,False,RU,Lower Tiers,No,Lower Tiers
+92,165,256,Combusken,Fire,Fighting,405,60,85,60,85,60,55,3,False,False,PU,Lower Tiers,Yes,Lower Tiers
+93,152,237,Hitmontop,Fighting,,455,50,95,95,35,110,70,2,False,False,RU,Lower Tiers,No,Lower Tiers
+94,145,229,Mega Houndoom,Dark,Fire,600,75,90,90,140,90,115,2,False,True,BL2,Lower Tiers,Yes,Upper Tiers
+95,236,359,Absol,Dark,,465,65,130,60,75,60,75,3,False,False,RU,Lower Tiers,No,Lower Tiers
+96,133,213,Shuckle,Bug,Rock,505,20,10,230,10,230,5,2,False,False,BL2,Lower Tiers,Yes,Lower Tiers
+97,208,323,Mega Camerupt,Fire,Ground,560,70,120,100,145,105,20,3,False,True,RU,Lower Tiers,Yes,Lower Tiers
+98,113,189,Jumpluff,Grass,Flying,460,75,55,70,55,95,110,2,False,False,PU,Lower Tiers,Yes,Lower Tiers
+99,477,700,Sylveon,Fairy,,525,95,65,65,110,130,60,6,False,False,UU,Upper Tiers,No,Lower Tiers
+100,348,721,Volcanion,Fire,Water,600,80,110,120,130,90,70,6,True,False,OU,Upper Tiers,Yes,Upper Tiers
+101,436,384,Rayquaza,Dragon,Flying,680,105,150,90,150,90,95,3,True,False,Uber,AG - Ubers,Yes,AG - Ubers
+102,485,711,Gourgeist,Ghost,Grass,494,65,90,122,58,75,84,6,False,False,PU,Lower Tiers,Yes,Lower Tiers
+103,449,648,Rotom-C,Normal,Fighting,600,100,128,90,77,77,128,5,False,False,RU,Lower Tiers,Yes,AG - Ubers
+104,344,718,Zygarde,Dragon,Ground,600,108,100,121,81,95,95,6,True,False,BL,Upper Tiers,Yes,Upper Tiers
+105,23,40,Wigglytuff,Normal,Fairy,435,140,70,45,85,50,45,1,False,False,PU,Lower Tiers,Yes,Lower Tiers
+106,230,354,Mega Banette,Ghost,,555,64,165,75,93,83,75,3,False,True,RU,Lower Tiers,No,Upper Tiers
+107,331,479,Rotom-H,Electric,Fire,520,50,65,107,105,107,86,4,False,False,UU,Upper Tiers,Yes,Lower Tiers
+108,104,171,Lanturn,Water,Electric,460,125,58,58,76,76,67,2,False,False,NU,Lower Tiers,Yes,Lower Tiers
+109,47,85,Dodrio,Normal,Flying,460,60,110,70,60,60,100,1,False,False,PU,Lower Tiers,Yes,Lower Tiers
+110,343,649,Genesect,Bug,Steel,600,71,120,95,120,95,99,5,True,False,Uber,AG - Ubers,Yes,Upper Tiers
+111,68,121,Starmie,Water,Psychic,520,60,75,85,100,85,115,1,False,False,OU,Upper Tiers,Yes,Upper Tiers
+112,192,303,Mawile,Steel,Fairy,380,50,85,85,55,55,50,3,False,False,PU,Lower Tiers,Yes,Lower Tiers
+113,481,705,Sliggoo,Dragon,,452,68,75,53,83,113,60,6,False,False,PU,Lower Tiers,No,Lower Tiers
+114,60,107,Hitmonchan,Fighting,,455,50,105,79,35,110,76,1,False,False,NU,Lower Tiers,No,Lower Tiers
+115,8,12,Butterfree,Bug,Flying,395,60,45,50,90,80,70,1,False,False,PU,Lower Tiers,Yes,Lower Tiers
+116,292,429,Mismagius,Ghost,,495,60,60,60,105,105,105,4,False,False,NU,Lower Tiers,No,Lower Tiers
+117,376,542,Leavanny,Bug,Grass,500,75,103,80,70,80,92,5,False,False,PU,Lower Tiers,Yes,Lower Tiers
+118,337,492,Shaymin-S,Grass,Flying,600,100,103,75,120,75,127,4,True,False,Uber,AG - Ubers,Yes,AG - Ubers
+119,100,164,Noctowl,Normal,Flying,442,100,50,50,76,96,70,2,False,False,PU,Lower Tiers,Yes,Lower Tiers
+120,282,414,Mothim,Bug,Flying,424,70,94,50,94,50,66,4,False,False,PU,Lower Tiers,Yes,Lower Tiers
+121,424,626,Bouffalant,Normal,,490,95,110,95,40,95,55,5,False,False,PU,Lower Tiers,No,Lower Tiers
+122,306,454,Toxicroak,Poison,Fighting,490,83,106,65,86,65,85,4,False,False,UU,Upper Tiers,Yes,Lower Tiers
+123,151,235,Smeargle,Normal,,250,55,20,35,20,45,75,2,False,False,PU,Lower Tiers,No,Lower Tiers
+124,334,479,Rotom-F,Electric,Ice,520,50,65,107,105,107,86,4,False,False,PU,Lower Tiers,Yes,Lower Tiers

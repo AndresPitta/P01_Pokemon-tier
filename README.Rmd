@@ -1,0 +1,156 @@
+---
+title: "Pokemon Tier Prediction"
+author: "Andrés Pitta </br>"
+date: "2020/01/25 (updated: `r Sys.Date()`)"
+always_allow_html: yes
+output: 
+  github_document:
+    toc: true
+    pandoc_args: --webtex
+bibliography: pokemon_bib.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(kableExtra)
+library(tidyverse)
+library(knitr)
+library(caret)
+```
+
+```{r load data, echo=FALSE, message=FALSE, warning=FALSE}
+models_df <- read_csv("results/pokemon_models.csv") %>% 
+              select(-c("Model")) %>% 
+              rename(Model = X1)
+
+final_model_df <- read_csv("results/pokemon_final_model.csv")
+
+train_df <- read_csv("data/pokemon_smogon_competitive_train.csv")
+
+test_df <- read_csv("data/pokemon_smogon_competitive_test.csv")
+
+test_prediction <- read_csv("results/pokemon_final_prediction.csv") %>% 
+                    mutate(Tier_2 = factor(Tier_2),
+                           Prediction = factor(Prediction),
+                           Tier_2 = fct_relevel(Tier_2, c("AG - Ubers", 
+                                                          "Upper Tiers",
+                                                          "Lower Tier")),
+                           Prediction = fct_relevel(Prediction, c("AG - Ubers", 
+                                                                  "Upper Tiers",
+                                                                  "Lower Tier")))
+```
+
+# Summary
+
+One of my favorite games was released in November 15, Pokemón [Sword and Shield](https://swordshield.pokemon.com/en-us/). And one of my biggest interest is to set a Pokemón team that is both cute and can be used to compete with my friends and my partner. As a result, and just for funsies, I decided to create a classification model that can help me predict the tier of the Pokemón I am going to choose for my team.
+
+For those of you who do not know what a tier is, do not worry, I have your back. [Smogon](https://www.smogon.com/), one of the most important Pokemón analysis community, has set up a tier system to classify how competitive a Pokemón is. The highest tier is Uber, which is basically a list oh too-op-to-handle Pokemón. The lowest tier is called **NU** and it stands for **NEVER USED** (but every Pokemón is important in my heart). If you are interested, [here](https://www.smogon.com/bw/articles/bw_tiers) is a link you can read.
+
+Now that we know what this project is about, let's see the process:
+
+# Methods
+
+## Data
+The data set used in this project is "Pokemón 6v6 competitive" created by Gibs. It was collected from Kaggle.com [@gibs] and can be found [here](https://www.kaggle.com/notgibs/smogon-6v6-pokemon-tiers). This dataset contains approximately 500 Pokemón, with the following features:
+
+- 10 categorical features:
+    - Name
+    - Primary Type
+    - Secondary Type
+    - Generation
+    - Legendary (Binary variable that labels legendary Pokemón)
+    - Mega (Binary variable that labels Pokemón with Mega Evolution)
+
+- 2 continuous features (All of them are stats measured from 0, which is the worst, to 600):
+    - Attack
+    - Special Attack
+    - Defense
+    - Special Defense
+    - HP
+    - Speed
+    - Total
+    
+- Response:
+    - Tier
+
+## Analysis
+
+The R and Python programming languages [@R; @Python] and the following R and Python packages were used to perform the analysis: docopt [@docopt], knitr [@knitr], tidyverse [@tidyverse], readr [@readr] docopt [@docoptpython], altair [@Altair2018], selenium [@seleniumhq_2020], pandas [@mckinney-proc-scipy-2010], numpy [@oliphant2006guide], statsmodel [@seabold2010statsmodels]. scikit-learn [@sklearn_api].
+
+The code used to perform the analysis and create this report can be found [here](https://github.com/AndresPitta/P01_Pokemon-tier)
+
+For this model, the following models were tested:
+
+```{r models, echo=FALSE, message=FALSE}
+model_names_df <- models_df %>% select(Model)
+kableExtra::kable_styling(knitr::kable(model_names_df), position = "center", full_width = F)
+```
+
+As mentioned, all of this classification models were aiming to predict the tier divided in 3 categories: AG and Ubers, Upper Tiers, and Lower Tiers. But before modeling, Let's analyze the variables to see which ones are the most important.
+
+### EDA
+
+For this EDA, I plotted the variables against the 3 main groups. All of the plots were stored [here](https://github.com/AndresPitta/P01_Pokemon-tier/tree/master/results/figures). But let's see a few examples:
+
+```{r attack, echo=FALSE, out.width = '45%', fig.cap = 'Image 1 - Average Attack by Tier', fig.align="center"}
+path <- "results/figures/Attack.png"
+knitr::include_graphics(path)
+```
+
+As you can see, the average attack of the higher tiers is 130, compared to an average of 80 in the lower tiers. Naturally, I can see why Pokemón players lean towards pokemon that hit harder. However, this behavior cannot be extended to the defense, where the difference between higher tiers and lower tiers is roughly 10 points.
+
+```{r defense, echo=FALSE, out.width = '45%', fig.cap = 'Image 2 - Average Defense by Tier', fig.align="center"}
+path <- "results/figures/Defense.png"
+knitr::include_graphics(path)
+```
+
+Now we see a pattern here. Therefore, in order to have an understanding of the importance of the variables, I decided to run a tree to check the `feature_importance_`:
+
+```{r importance, echo=FALSE, out.width = '70%', out.height = '150%', fig.cap = 'Image 3 - Feature Importance using a Decision Tree', fig.align="center"}
+path <- "results/figures/importance_plot_cropped.png"
+knitr::include_graphics(path)
+```
+
+Finally, I also made a correlation matrix to understand a little bit more the Pokemón:
+
+```{r correlation, echo=FALSE, out.width = '70%', out.height = '150%', fig.cap = "Image 4 - Feature's Correlation Matrix", fig.align="center"}
+path <- "results/figures/corrplot.png"
+knitr::include_graphics(path)
+```
+
+From which you can see that, for instance, Pokemón with higher defense have a lower speed. It seems like people do not like to wait be hit. From my personal experience, I guess having 1 or 2 defensive Pokemón is enough. I am now starting to realize why I loose so much.
+
+### Modeling
+
+As I mentioned before, `r length(model_names_df$Model)` models were tested before over a training set of `r length(train_df$Number)` Pókemon. Later, the final model was tested on a data set of `r length(test_df$Number)` Pokemón. For the first portion, here are the results:
+
+```{r model results, echo=FALSE, message=FALSE}
+kableExtra::kable_styling(knitr::kable(models_df), position = "center", full_width = F)
+```
+
+It is worth to mention that the variables that I choose (after evaluating the feature importance) for the model were:
+ 
+  - Attack
+  - Special Attack
+  - Defense
+  - Special Defense
+  - HP
+  - Speed
+  - Has Secondary Type
+
+However, as you can see, all of the models seem to be a bit overfitted. This led me to the decision of choosing a `r final_model_df[[1,2]]`. Now let's see how good this model is in the testing data set.
+
+```{r final model results, echo=FALSE, message=FALSE}
+kableExtra::kable_styling(knitr::kable(final_model_df), position = "center", full_width = F)
+```
+
+So I guess a test accuracy of `r final_model_df[[1,4]]` is decent. I am not feeling super confident right here. Let's see the confusion matrix (Real on the rows, predicted on the columns):
+
+```{r confusion matrix, echo=FALSE, message=FALSE}
+cm <- confusionMatrix(test_prediction$Tier_2, test_prediction$Prediction)$table
+kableExtra::kable_styling(knitr::kable(cm), position = "center", full_width = F)
+```
+
+And as you can see, at least the biggest numbers are in the correct prediction (though it can improve much more).
+
+# References

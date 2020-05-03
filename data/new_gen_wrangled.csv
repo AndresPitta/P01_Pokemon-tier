@@ -1,0 +1,9 @@
+,Number,Name,Type1,Type2,Total,HP,Attack,Defense,Special_attack,Special_defense,Speed,Generation,Legendary,Mega,Tier,Tier_2,Has_ST
+0,999,Barraskweda,Water,,490,61,123,60,60,50,136,8,False,False,NONE,NONE,No
+1,999,Alcremie,Fairy,,495,65,60,75,110,121,64,8,False,False,NONE,NONE,No
+2,999,Coalossal,Rock,Fire,510,110,80,120,80,90,30,8,False,False,NONE,NONE,Yes
+3,999,Toxtricity,Electric,Poison,502,75,98,70,114,70,75,8,False,False,NONE,NONE,Yes
+4,999,Cramorant,Flying,Water,475,70,85,55,85,95,85,8,False,False,NONE,NONE,Yes
+5,999,Cinderace,Fire,,530,80,116,75,65,75,119,8,False,False,NONE,NONE,No
+6,999,Polteageis,Ghost,,508,60,65,65,134,114,70,8,False,False,NONE,NONE,No
+7,999,Inteleon,Water,,530,70,85,65,125,65,120,8,False,False,NONE,NONE,No

@@ -27,6 +27,7 @@ def main(data_file_path, eda_file_path):
     assert os.path.isdir(eda_file_path), "EDA_FILE_PATH does not exist, please create a 'figures' folder in results"
 
     data = pd.read_csv(data_file_path)
+    data = data.loc[:, ~data.columns.str.contains('^Unnamed')]
     
     make_correlation(data, eda_file_path)
     make_bars(data, eda_file_path)
