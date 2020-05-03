@@ -50,6 +50,22 @@ One of my favorite games was released in November 15, Pokemón [Sword and Shield
 
 For those of you who do not know what a tier is, do not worry, I have your back. [Smogon](https://www.smogon.com/), one of the most important Pokemón analysis community, has set up a tier system to classify how competitive a Pokemón is. The highest tier is Uber, which is basically a list oh too-op-to-handle Pokemón. The lowest tier is called **NU** and it stands for **NEVER USED** (but every Pokemón is important in my heart). If you are interested, [here](https://www.smogon.com/bw/articles/bw_tiers) is a link you can read.
 
+For this project, I grouped the tiers like this:
+
+Grouped Tier | Tier
+--- | ---
+AG | AG and Ubers
+Uber | AG and Ubers
+OU | Upper tiers
+BL | Upper tiers
+UU | Upper tiers
+BL2 | Lower tiers
+RU | Lower tiers
+BL3 | Lower tiers
+NU | Lower tiers
+BL4 | Lower tiers
+PU | Lower tiers
+
 Now that we know what this project is about, let's see the process:
 
 # Methods

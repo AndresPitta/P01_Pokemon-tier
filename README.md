@@ -32,6 +32,22 @@ heart). If you are interested,
 [here](https://www.smogon.com/bw/articles/bw_tiers) is a link you can
 read.
 
+For this project, I grouped the tiers like this:
+
+| Grouped Tier | Tier         |
+| ------------ | ------------ |
+| AG           | AG and Ubers |
+| Uber         | AG and Ubers |
+| OU           | Upper tiers  |
+| BL           | Upper tiers  |
+| UU           | Upper tiers  |
+| BL2          | Lower tiers  |
+| RU           | Lower tiers  |
+| BL3          | Lower tiers  |
+| NU           | Lower tiers  |
+| BL4          | Lower tiers  |
+| PU           | Lower tiers  |
+
 Now that we know what this project is about, let’s see the process:
 
 # Methods
